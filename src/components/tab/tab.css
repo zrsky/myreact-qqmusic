@@ -1,0 +1,20 @@
+.tabWrapper {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 16px;
+  padding: 10px 0;
+}
+.tabWrapper .ul-wrapper {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+.tabWrapper .ul-wrapper li {
+  flex: 1;
+}
+.tabWrapper .ul-wrapper li a {
+  color: rgba(255, 255, 255, 0.5);
+}
+.tabWrapper .ul-wrapper li .active {
+  color: #ffcd32;
+}
