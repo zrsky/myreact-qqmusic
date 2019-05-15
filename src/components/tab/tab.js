@@ -7,7 +7,7 @@ export default class Tab extends React.Component {
         return (
             <div className="tabWrapper">
                 <ul className="ul-wrapper">
-                    <li className="active"><NavLink to="/recommend">推荐</NavLink></li>
+                    <li><NavLink to="/recommend">推荐</NavLink></li>
                     <li><NavLink to="/singer">歌手</NavLink></li>
                     <li><NavLink to="/rank">排行</NavLink></li>
                     <li><NavLink to="/search">搜索</NavLink></li>

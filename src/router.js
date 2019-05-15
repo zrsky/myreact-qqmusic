@@ -59,7 +59,7 @@ import React from 'react'
 import App from './App'
 import Admin from './admin'
 
-import { HashRouter , Route , Switch, Redirect } from 'react-router-dom'
+import { HashRouter , Route , Switch, Redirect} from 'react-router-dom'
 
 import Recommend from './components/recommend/recommend'
 import noMatch from './components/noMatch/noMatch'

@@ -1,10 +1,12 @@
 import React from'react'
-
-export default class Admin extends React.Component {
+import Slider from '../../base/slider/slider'
+export default class Recommend extends React.Component {
     render() {
         return (
             <div className="adminWrapper">
-                recommend
+                <Slider>
+                    <div>slider</div>
+                </Slider>
             </div>
         )
     }
