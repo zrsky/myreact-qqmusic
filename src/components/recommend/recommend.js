@@ -16,7 +16,7 @@ export default class Recommend extends React.Component {
 
     getRecommendData = () => {
          getRecommend().then((data) => {
-            if(data.code == ERR_OK) {
+            if(data.code === ERR_OK) {
                 this.setState({
                     recommendData: data.data.slider
                 })

@@ -1,6 +1,6 @@
 import jsonp from '../common/js/jsonp.js';
 import { commonParams, options } from "../api/config.js";
-import axios from 'axios';
+// import axios from 'axios';
 
 export function getRecommend() {
   const url = 'https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg'

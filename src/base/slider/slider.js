@@ -13,12 +13,6 @@ export default class Slider extends React.Component {
         }
         this.setScrollRef = element => {
             this.sliderGroup = element;
-            this.children = element.children;
-            console.log(this.children)
-            let length = this.children.length
-            this.setState({
-                dots: length
-            })
         }
         
     }
@@ -48,8 +42,14 @@ export default class Slider extends React.Component {
 
     componentDidMount() {
         let self = this;
+        this.children = this.sliderGroup.children;
+        let length = this.children.length
+        this.setState({
+            dots: length
+        })
+        self._setSliderWidth();
+
         setTimeout(function(){
-            self._setSliderWidth();
             self._initScroll();
             if(self.props.autoPlay) {
                 self._play();
@@ -64,7 +64,6 @@ export default class Slider extends React.Component {
 
     //初始化better-scroll
     _initScroll = () => {
-        let self = this;
         if(!this.slider) {
             console.log(this.container)
             this.slider = new BetterScroll(this.container, {
@@ -89,7 +88,6 @@ export default class Slider extends React.Component {
                 // if(this.props.loop) {
 				// 	currentPageIndex -= 1;
 				// }
-                console.log(currentPageIndex)
                 this.setState({
                     currentPageIndex
                 })
@@ -104,14 +102,16 @@ export default class Slider extends React.Component {
 
     _play() {
         this.timer = setInterval(() => {
-            let pageIndex = this.state.currentPageIndex + 1;
-            this.slider.goToPage(pageIndex, 0, 400);
+            // let pageIndex = this.state.currentPageIndex + 1;
+            // this.slider.goToPage(pageIndex, 0, 400);
+            // console.log(pageIndex)
+            this.slider.next();
         }, this.props.interval)
     }
 
     _setSliderWidth() {
         let sliderWidth = this.container.clientWidth;
-        if(!this.children.length || this.children.length == 0) {
+        if(!this.children.length || this.children.length === 0) {
             return;
         }
         let width = 0;
@@ -134,7 +134,7 @@ export default class Slider extends React.Component {
             dotLen.push(i);
         }
         return dotLen.map((item, index) => {
-            return <div key={index} className={`dot ${index == this.state.currentPageIndex ? 'active' : ''}`}></div>
+            return <div key={index} className={`dot ${index === this.state.currentPageIndex ? 'active' : ''}`}></div>
         })
     }
 

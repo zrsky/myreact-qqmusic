@@ -19,7 +19,7 @@ export function removeClass(el, className) {
 
     let newClass = el.className.split(' ');
     newClass.forEach((item, index) => {
-        if(item == className) {
+        if(item === className) {
             newClass.splice(index, 1);
         }
     })

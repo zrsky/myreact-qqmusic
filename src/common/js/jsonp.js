@@ -1,7 +1,7 @@
 import originJsonp from 'jsonp';
 
 export default function Jsonp(url, data, options) {
-    url += (url.indexOf('?') == -1 ? '?' : '&') + param(data);
+    url += (url.indexOf('?') === -1 ? '?' : '&') + param(data);
     return new Promise((resolve, reject) => {
         originJsonp(url, options, (err, data)=>{
             if(data) {
