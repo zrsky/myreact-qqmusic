@@ -63,6 +63,8 @@ import { HashRouter , Route , Switch} from 'react-router-dom'
 
 import Recommend from './components/recommend/recommend'
 import Singer from './components/singer/singer'
+import Rank from './components/rank/rank'
+import SingerDetail from './components/singer-detail/singer-detail'
 import noMatch from './components/noMatch/noMatch'
 
 export default class IRouter extends React.Component {
@@ -74,7 +76,11 @@ export default class IRouter extends React.Component {
                 <Admin>
                     <Switch>
                         <Route path="/recommend" component={Recommend}></Route>
-                        <Route path="/singer" component={Singer}></Route>
+                        <Route path="/singer" render={()=>
+                          <Singer>
+                            <Route path="/singer/:id" component={SingerDetail}></Route>
+                          </Singer>}></Route>
+                        <Route path="/rank" component={Rank}></Route>
                         <Route component={noMatch}></Route>
                     </Switch>
                 </Admin>

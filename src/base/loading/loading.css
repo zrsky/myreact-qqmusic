@@ -1,0 +1,15 @@
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 30%;
+}
+.loading img {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+}

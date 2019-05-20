@@ -1,0 +1,16 @@
+.musiclist-wrapper .back {
+  position: absolute;
+  left: 6px;
+}
+.musiclist-wrapper .back .icon-back {
+  color: #ffcd32;
+  font-size: 22px;
+  padding: 10px;
+}
+.musiclist-wrapper .title {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 18px;
+  font-weight: normal;
+}

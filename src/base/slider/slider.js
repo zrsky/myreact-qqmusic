@@ -110,7 +110,7 @@ export default class Slider extends React.Component {
     }
 
     _setSliderWidth() {
-        let sliderWidth = this.container.clientWidth;
+        let sliderWidth = this.container.clientWidth || 0;
         if(!this.children.length || this.children.length === 0) {
             return;
         }

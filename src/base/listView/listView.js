@@ -1,6 +1,9 @@
 import React from 'react';
 import Scroll from '../scroll/scroll';
 import './listView.less'
+import { getData } from '../../common/js/dom'
+
+const ANCHOR_HEIGHT = 16
 
 export default class ListView extends React.Component {
 
@@ -9,13 +12,26 @@ export default class ListView extends React.Component {
         this.getListItemRef = element => {
             this.listItem = element;
         }
+        this.getScroll = element => {
+            this.scrollRef = element
+        }
+        this.touch = {}
     }
 
     state = {
         probeType: 3,
         shortcutList: [],
         currentIndex: 0,
-        listHeight: []
+        listHeight: [],
+        prevSingerList: this.props.singerList
+    }
+
+     componentWillReceiveProps(nextProps) {
+        console.log(nextProps)
+        if(nextProps.singerList !== this.props.singerList) {
+            this._calculateHeight();
+            this.scrollRef.refresh()
+        }
     }
 
     componentDidMount() {
@@ -27,11 +43,10 @@ export default class ListView extends React.Component {
             // })
         }, 200)
     }
-    // shouldComponentUpdate(nextProps, nextState) {
-    //     console.log(nextProps)
-    //     this._calculateHeight();
-    //     return true
-    // }
+
+    selectSinger = (singer) => {
+        this.props.selectSinger(singer)
+    }
 
     _setSingerList() {
         return this.props.singerList.map((singer) => {
@@ -41,8 +56,8 @@ export default class ListView extends React.Component {
                     <ul className="list-group-item">
                         {singer.items.map((item, index) => {
                             return (
-                                <li className="item" key={item.id}>
-                                    <img src={item.avatar} />
+                                <li className="item" key={item.id} data-item={item} onClick={(e) => {this.selectSinger(item)}}>
+                                    <img src={item.avatar} alt="加载失败" />
                                     <span>{item.name}</span>
                                 </li>
                             )
@@ -67,25 +82,42 @@ export default class ListView extends React.Component {
                 <li key={key} className={this.state.currentIndex === index ? 'current' : ''}
                 onTouchStart={this.onTouchStart}
                 onTouchMove={this.onTouchMove}
-                onTouchEnd={this.onTouchEnd}>{key}</li>
+                data-index={index}>{key}</li>
             )
         })
     }
 
-    onTouchStart(e) {
-        console.log(e.touches[0])
+    onTouchStart = (e) => {
         e.stopPropagation();
+        let index = getData(e.target, 'index');
+        this.touch.startY = e.touches[0].pageY;
+        this.touch.index = index;
+        this.scrollTo(index);
     }
 
-    onTouchMove(e) {
-        console.log(e.touches[0])
+    onTouchMove = (e) => {
         e.stopPropagation();
+        this.delta = (e.touches[0].pageY - this.touch.startY) / ANCHOR_HEIGHT - 1 | 0;
+        let index = parseInt(this.delta) + parseInt(this.touch.index)
+
+        this.scrollTo(index);
     }
 
-    onTouchEnd(e) {
-        console.log(e.touches[0])
-        e.stopPropagation();
+    scrollTo(index) {
+        if(!index) {
+            return
+        }else if(index < 0) {
+            index = 0;
+        }else if(index > this.listHeight.length){
+          index = this.listHeight.length - 1;
+        }
+        this.scrollRef.scrollToElement(this.listItem.children[index], 0) 
     }
+
+    // onTouchEnd(e) {
+    //     console.log(e.touches[0])
+    //     e.stopPropagation();
+    // }
 
     _calculateHeight() {
         let height = 0;
@@ -134,7 +166,7 @@ export default class ListView extends React.Component {
 
     render() {
         return (
-            <Scroll probeType={this.state.probeType} data={this.props.singerList}
+            <Scroll ref={this.getScroll} probeType={this.state.probeType} data={this.props.singerList}
                 scroll={this.scroll}>
                 <ul className="list-group" ref={this.getListItemRef}>
                     {this._setSingerList()}
