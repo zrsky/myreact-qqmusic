@@ -3,6 +3,7 @@ import Scroll from '../scroll/scroll';
 import './listView.less'
 import { getData } from '../../common/js/dom'
 
+
 const ANCHOR_HEIGHT = 16
 
 export default class ListView extends React.Component {
@@ -88,18 +89,19 @@ export default class ListView extends React.Component {
     }
 
     onTouchStart = (e) => {
+        console.log('start')
         e.stopPropagation();
         let index = getData(e.target, 'index');
         this.touch.startY = e.touches[0].pageY;
         this.touch.index = index;
+        console.log(index)
         this.scrollTo(index);
     }
 
     onTouchMove = (e) => {
         e.stopPropagation();
-        this.delta = (e.touches[0].pageY - this.touch.startY) / ANCHOR_HEIGHT - 1 | 0;
+        this.delta = (e.touches[0].pageY - this.touch.startY) / ANCHOR_HEIGHT | 0;
         let index = parseInt(this.delta) + parseInt(this.touch.index)
-
         this.scrollTo(index);
     }
 

@@ -1,0 +1,23 @@
+.songlist-wrapper {
+  padding: 20px 30px;
+}
+.songlist-wrapper .ul-wrapper {
+  text-align: left;
+  font-size: 14px;
+}
+.songlist-wrapper .ul-wrapper li.listItem {
+  height: 64px;
+}
+.songlist-wrapper .ul-wrapper li.listItem .songName {
+  font-weight: normal;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.songlist-wrapper .ul-wrapper li.listItem .desc {
+  color: rgba(255, 255, 255, 0.3);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}

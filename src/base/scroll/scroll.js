@@ -4,6 +4,11 @@ import BScroll from 'better-scroll';
 import './scroll.less'
 
 export default class Scroll extends React.Component {
+
+    state = {
+        first: true
+    }
+
     constructor(props) {
         super(props)
         this.getScrollRef = element => {
@@ -41,6 +46,7 @@ export default class Scroll extends React.Component {
     componentWillReceiveProps(nextProps) {
         console.log('props')
         console.log(nextProps)
+        // this.refresh()
     }
 
     _initScroll() {
@@ -56,11 +62,12 @@ export default class Scroll extends React.Component {
         }
         if (this.props.listenScroll) {
             this.scroll.on('scroll', (pos) => {
+                console.log('scroll')
                 this.props.scroll(pos)
             })
             if (this.props.pullup) {
                 this.scroll.on("scrollEnd", (pos) => {
-
+                    console.log('scrollEnd')
                 })
             }
         }

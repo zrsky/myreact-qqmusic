@@ -60,6 +60,9 @@ import App from './App'
 import Admin from './admin'
 
 import { HashRouter , Route , Switch} from 'react-router-dom'
+import {
+  KeepAlive,
+} from 'react-keep-alive';
 
 import Recommend from './components/recommend/recommend'
 import Singer from './components/singer/singer'
@@ -75,7 +78,11 @@ export default class IRouter extends React.Component {
             <Route path="/" render={()=>
                 <Admin>
                     <Switch>
-                        <Route path="/recommend" component={Recommend}></Route>
+                        <Route path="/recommend">
+                            <KeepAlive name="Recommend">
+                              <Recommend />
+                            </KeepAlive>
+                        </Route>
                         <Route path="/singer" render={()=>
                           <Singer>
                             <Route path="/singer/:id" component={SingerDetail}></Route>

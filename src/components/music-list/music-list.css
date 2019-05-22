@@ -1,6 +1,11 @@
+.musiclist-wrapper {
+  height: 100%;
+}
 .musiclist-wrapper .back {
   position: absolute;
   left: 6px;
+  top: 8px;
+  z-index: 500;
 }
 .musiclist-wrapper .back .icon-back {
   color: #ffcd32;
@@ -13,4 +18,29 @@
   white-space: nowrap;
   font-size: 18px;
   font-weight: normal;
+  margin: 0;
+  padding-top: 8px;
+  position: absolute;
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+  z-index: 500;
+}
+.musiclist-wrapper .bg-image {
+  padding-top: 70%;
+  background: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558519485757&di=821bfa73254d3fc97decc7de02403a7f&imgtype=0&src=http%3A%2F%2Fhubei.sinaimg.cn%2F2014%2F0824%2FU7651P1190DT20140824115623.jpg") no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.musiclist-wrapper .bg-image .filter {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(7, 17, 27, 0.4);
+}
+.musiclist-wrapper .layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
 }
