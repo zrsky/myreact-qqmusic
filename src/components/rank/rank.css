@@ -1,0 +1,39 @@
+.rank-wrapper {
+  position: fixed;
+  width: 100%;
+  background: #222;
+  bottom: 0;
+  top: 80px;
+}
+.rank-wrapper .rank-ul-wrapper {
+  padding: 10px 20px;
+}
+.rank-wrapper .rank-ul-wrapper .list-item {
+  display: flex;
+}
+.rank-wrapper .rank-ul-wrapper .list-item .avatar {
+  width: 100px;
+  height: 100px;
+}
+.rank-wrapper .rank-ul-wrapper .list-item .list-ul-wrapper {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  background: #333;
+  flex: 1;
+  overflow: hidden;
+  padding: 0 20px;
+}
+.rank-wrapper .rank-ul-wrapper .list-item .list-ul-wrapper .item {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  line-height: 26px;
+  width: 100%;
+}
+.rank-wrapper .rank-ul-wrapper .list-item + .list-item {
+  padding-top: 20px;
+}

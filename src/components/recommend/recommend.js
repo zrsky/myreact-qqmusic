@@ -26,7 +26,7 @@ export default class Recommend extends React.Component {
 
     getSlider = (data) => {
        return data.map((item,index) => {
-            return <div key={item.id}><a href={item.linkUrl}><img src={item.picUrl} /></a></div>
+            return <div key={item.id}><a href={item.linkUrl}><img src={item.picUrl} alt="加载失败" /></a></div>
         })
     }
 

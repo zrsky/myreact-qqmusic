@@ -68,6 +68,7 @@ import Recommend from './components/recommend/recommend'
 import Singer from './components/singer/singer'
 import Rank from './components/rank/rank'
 import SingerDetail from './components/singer-detail/singer-detail'
+import TopList from './components/top-list/top-list'
 import noMatch from './components/noMatch/noMatch'
 
 export default class IRouter extends React.Component {
@@ -87,7 +88,11 @@ export default class IRouter extends React.Component {
                           <Singer>
                             <Route path="/singer/:id" component={SingerDetail}></Route>
                           </Singer>}></Route>
-                        <Route path="/rank" component={Rank}></Route>
+                        <Route path="/rank" render={()=>
+                          <Rank>
+                            <Route path="/rank/:id" component={TopList}></Route>
+                          </Rank>}></Route>
+                        {/*<Route path="/rank" component={Rank}></Route>*/}
                         <Route component={noMatch}></Route>
                     </Switch>
                 </Admin>
