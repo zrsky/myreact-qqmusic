@@ -7,14 +7,16 @@ import Router from './router';
 import registerServiceWorker from './registerServiceWorker';
 import {
   Provider,
-} from 'react-keep-alive';
+} from 'react-redux';
+import configureStore from './redux/store'
+const store = configureStore();
 
 // import { Provider } from 'react-redux';
 // import configureStore from './redux/store'
 // const store = configureStore();
 
 ReactDOM.render(
-        <Provider>
+        <Provider store={store}>
             <Router />
         </Provider>,
         document.getElementById('root')

@@ -5,11 +5,13 @@ import './singer.less'
 import { getSingerList } from '../../api/singer'
 import { ERR_OK } from '../../api/config'
 import PropTypes from 'prop-types'
+import {connect} from 'react-redux'
+import {setBgImage} from '../../redux/action'
 
 let HOT_NAME = '热门';
 let HOT_NAME_LEN = 10;
 
-export default class Singer extends React.Component {
+class Singer extends React.Component {
 
     state = {
         singerList: []
@@ -82,7 +84,9 @@ export default class Singer extends React.Component {
     }
 
     selectSinger = (singer) => {
+        const { dispatch } = this.props;
         console.log(singer)
+        dispatch(setBgImage(singer.avatar))
         let id = singer.id;
         this.context.router.history.push(`/singer/${id}`,{id: id});
     }
@@ -97,3 +101,5 @@ export default class Singer extends React.Component {
         )
     }
 }
+
+export default connect()(Singer);
