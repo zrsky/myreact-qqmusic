@@ -5,8 +5,9 @@ import './singer-detail.less'
 import { getSingerDetail } from '../../api/singer'
 import { ERR_OK } from '../../api/config'
 import { createSong } from '../../common/js/song'
+import { connect } from 'react-redux';
 
-export default class SingerDetail extends React.Component {
+class SingerDetail extends React.Component {
 
     state = {
         singerId: this.props.match.params.id,
@@ -37,10 +38,13 @@ export default class SingerDetail extends React.Component {
 
     componentDidMount() {
         console.log(this.props.match.params)
+        console.log(111)
+        console.log(this.props)
         this._getSingerDetail(this.state.singerId);
     }
 
     render() {
+        const { imgUrls } = this.props;
         return (
             /*<ReactCSSTransitionGroup
                 transitionName="fade"
@@ -48,9 +52,17 @@ export default class SingerDetail extends React.Component {
                 transitionLeaveTimeout={300}>*/
 
                 <div className="singer-detail-wrapper">
-                    <MusicList song={this.state.song}></MusicList>
+                    <MusicList song={this.state.song} imgUrl={this.props.imgUrls}></MusicList>
                 </div>
             /*</ReactCSSTransitionGroup>*/
         )
     }
 }
+
+const mapStateToProps = state => {
+    console.log(state)
+    return {
+        imgUrls: state.imgUrls
+    }
+};
+export default connect(mapStateToProps)(SingerDetail)

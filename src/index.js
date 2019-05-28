@@ -6,7 +6,7 @@ import './common/less/icon.less'
 import Router from './router';
 import registerServiceWorker from './registerServiceWorker';
 import {
-  Provider,
+    Provider,
 } from 'react-redux';
 import configureStore from './redux/store'
 const store = configureStore();
@@ -15,10 +15,10 @@ const store = configureStore();
 // import configureStore from './redux/store'
 // const store = configureStore();
 
-ReactDOM.render(
-        <Provider store={store}>
-            <Router />
-        </Provider>,
-        document.getElementById('root')
-    );
+ReactDOM.render( 
+    <Provider store = { store } >
+        <Router />
+    </Provider>,
+    document.getElementById('root')
+);
 registerServiceWorker();

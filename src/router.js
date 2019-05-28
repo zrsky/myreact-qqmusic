@@ -79,10 +79,10 @@ export default class IRouter extends React.Component {
             <Route path="/" render={()=>
                 <Admin>
                     <Switch>
-                        <Route path="/recommend">
-                            <KeepAlive name="Recommend">
+                        <Route path="/recommend" component={Recommend}>
+                            {/*<KeepAlive name="Recommend">
                               <Recommend />
-                            </KeepAlive>
+                            </KeepAlive>*/}
                         </Route>
                         <Route path="/singer" render={()=>
                           <Singer>

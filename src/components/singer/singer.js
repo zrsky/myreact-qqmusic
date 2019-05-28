@@ -86,6 +86,7 @@ class Singer extends React.Component {
     selectSinger = (singer) => {
         const { dispatch } = this.props;
         console.log(singer)
+        console.log(dispatch)
         dispatch(setBgImage(singer.avatar))
         let id = singer.id;
         this.context.router.history.push(`/singer/${id}`,{id: id});

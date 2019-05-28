@@ -1,22 +1,20 @@
 /**
  * Reducer 数据处理
  */
-
+import { combineReducers } from 'redux'
 import { type } from '../action' 
 
-const initialState = {
-    imgUrl: ''
-}
-
-export default (state = initialState, action) => {
-    switch(action) {
+const ebikeData = (state, action) => {
+    switch(action.type) {
         case type.BG_IMAGE:
             return {
                 ...state,
-                imgUrl: action.imgUrl
+                imgUrls: action.imgUrls
             }
         default:
-           break;
+           return {...state}
 
     }
 }
+
+export default ebikeData;

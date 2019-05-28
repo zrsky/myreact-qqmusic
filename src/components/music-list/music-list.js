@@ -3,18 +3,17 @@ import PropTypes from 'prop-types';
 import './music-list.less'
 import Scroll from '../../base/scroll/scroll'
 import SongList from '../../base/song-list/song-list'
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 
 const TOP_HEIGHT = 40;
 
-class MusicList extends React.Component {
+export default class MusicList extends React.Component {
 
     constructor(props) {
         super(props);
 
         this.getLayer = element => {
             this.layer = element;
-            console.log(this.layer)
         }
 
         this.getImgRef = element => {
@@ -42,13 +41,11 @@ class MusicList extends React.Component {
 
     componentDidMount() {
         this.imageHeight = -this.bgImg.clientHeight + TOP_HEIGHT;
-        console.log(this.props.imgUrl)
     //    this.setState({
     //        imageHeight
     //    })
-        this._setBgImg();
+        // this._setBgImg();
         // setTimeout(()=>{
-            console.log(this.props.imgUrl)
         // },2000)
     }
 
@@ -61,10 +58,8 @@ class MusicList extends React.Component {
     }
 
     _setBgImg(imgUrl) {
-        console.log('setImg')
         this.bgImg.style.background = imgUrl ? `url(${imgUrl}) no-repeat` 
         : `url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558519485757&di=821bfa73254d3fc97decc7de02403a7f&imgtype=0&src=http%3A%2F%2Fhubei.sinaimg.cn%2F2014%2F0824%2FU7651P1190DT20140824115623.jpg') no-repeat`;
-        console.log(this.bgImg.style.background)
         this.bgImg.style.backgroundSize = 'cover';
     }
 
@@ -73,7 +68,7 @@ class MusicList extends React.Component {
     }
 
     scroll = (pos) => {
-        console.log(pos)
+        // console.log(pos)
         let zIndex = 0;
         let percent = 0;
         let scrollY = pos.y;
@@ -96,10 +91,10 @@ class MusicList extends React.Component {
             // this.bgImg.style.height = 0;
             // zIndex = 0;
             // this.layer.style.transform = `translate3d(0, 0, 0)`;
-            console.log(scrollY, this.imageHeight)
-            console.log(scrollY / -this.imageHeight)
+            // console.log(scrollY, this.imageHeight)
+            // console.log(scrollY / -this.imageHeight)
             percent = (scrollY / -this.imageHeight) + 1;
-            console.log(percent)
+            // console.log(percent)
             if(this.bgImg) {
                 this.bgImg.style.transform = `scale(${percent})`; 
             }
@@ -128,10 +123,10 @@ class MusicList extends React.Component {
     }
 }
 
-const mapStateToProps = state => {
-    console.log(state)
-    return {
-        imgUrl: state.imgUrl
-    }
-};
-export default connect()(MusicList)
+// const mapStateToProps = state => {
+//     console.log(state)
+//     return {
+//         imgUrls: state.imgUrls
+//     }
+// };
+// export default connect(mapStateToProps)(MusicList)
