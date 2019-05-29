@@ -1,0 +1,155 @@
+.normal-player {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: #222;
+}
+.normal-player .background {
+  opacity: .6;
+  filter: blur(20px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+.normal-player .middle {
+  position: fixed;
+  width: 100%;
+  top: 80px;
+  bottom: 162px;
+}
+.normal-player .middle .middle-l {
+  position: relative;
+  padding-top: 80%;
+  width: 80%;
+  left: 10%;
+  height: 0;
+}
+.normal-player .middle .middle-l .cd-wrapper {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.normal-player .middle .middle-l .cd-wrapper .cd {
+  height: 100%;
+  border: 10px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+.normal-player .middle .middle-l .cd-wrapper .cd img {
+  border-radius: 50%;
+}
+.normal-player .middle .middle-l .playing-lyric-wrapper {
+  text-align: center;
+  overflow: hidden;
+  margin: 30px auto 0 auto;
+}
+.normal-player .middle .middle-l .playing-lyric-wrapper .play-lyric {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+  height: 20px;
+  line-height: 20px;
+}
+.normal-player .top {
+  color: #fff;
+}
+.normal-player .top .back {
+  position: absolute;
+  top: 0px;
+}
+.normal-player .top .back .icon-back {
+  transform: rotate(-90deg);
+  display: block;
+  padding: 9px;
+  font-size: 22px;
+  color: #ffcd32;
+}
+.normal-player .top .title {
+  font-size: 18px;
+  font-weight: normal;
+  margin-bottom: 0;
+}
+.normal-player .top .subtitle {
+  font-size: 14px;
+  font-weight: normal;
+  margin-bottom: 0;
+}
+.normal-player .bottom {
+  position: absolute;
+  bottom: 50px;
+  width: 100%;
+}
+.normal-player .bottom .operators {
+  display: flex;
+}
+.normal-player .bottom .operators .icon {
+  flex: 1;
+  color: #ffcd32;
+  font-size: 30px;
+}
+.normal-player .bottom .dot-wrapper .dot {
+  background: rgba(255, 255, 255, 0.5);
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  border-radius: 50%;
+  margin: 0 3px;
+}
+.normal-player .bottom .dot-wrapper .dot.active {
+  background: rgba(255, 255, 255, 0.8);
+  width: 20px;
+  border-radius: 5px;
+}
+.normal-player .bottom .progress-wrapper {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  padding: 10px 0;
+  width: 80%;
+}
+.normal-player .bottom .progress-wrapper .time {
+  color: #fff;
+  width: 30px;
+  line-height: 30px;
+  display: inline-block;
+  font-size: 12px;
+}
+.normal-player .bottom .progress-wrapper .progress-bar-wrapper {
+  flex: 1;
+}
+.normal-player .bottom .progress-wrapper .progress-bar-wrapper .progress-bar {
+  height: 30px;
+}
+.normal-player .bottom .progress-wrapper .progress-bar-wrapper .bar-inner {
+  position: relative;
+  height: 4px;
+  background: rgba(0, 0, 0, 0.3);
+  top: 13px;
+}
+.normal-player .bottom .progress-wrapper .progress-bar-wrapper .progress {
+  position: absolute;
+  height: 100%;
+  background: #ffcd32;
+}
+.normal-player .bottom .progress-wrapper .progress-bar-wrapper .progress-btn-wrapper {
+  position: absolute;
+  left: -8px;
+  top: -13px;
+}
+.normal-player .bottom .progress-wrapper .progress-bar-wrapper .progress-btn-wrapper .progress-btn {
+  background: #ffcd32;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-sizing: border-box;
+  position: relative;
+  top: 7px;
+  left: 7px;
+}
