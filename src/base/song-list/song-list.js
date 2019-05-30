@@ -13,9 +13,10 @@ export default class SongList extends React.Component {
 
     _getSongList() {
         if(this.props.song) {
-            return this.props.song.map((item, index) => {
+            let song = this.props.song;
+            return song.map((item, index) => {
                 return (
-                    <li className="listItem" key={index}>
+                    <li className="listItem" key={index} onClick={()=>{this.props.selectItem(song, index)}}>
                         <div className="content">
                             <h2 className="songName">{item.name}</h2>
                             <p className="desc">{item.singer}-{item.album}</p>

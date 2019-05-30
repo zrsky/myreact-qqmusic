@@ -1,13 +1,15 @@
 import React from 'react';
 import './player.less'
+import {connect} from 'react-redux';
+import { setFullScreen } from '../../redux/action'
 
-export default class Player extends React.Component {
+class Player extends React.Component {
 
     state = {
         playIcon: 'icon-sequence',
         getFavoriteIcon: 'icon-not-favorite',
         iconPlay: 'icon-play',
-        fullScreen: true
+        // fullScreen: this.props.fullScreen
     }
 
     changeMode = () => {
@@ -30,17 +32,19 @@ export default class Player extends React.Component {
 
     }
 
-    back() {
-        let fullScreen = !this.state.fullScreen;
-        this.setState({
-            fullScreen
-        })
+    back = () => {
+        let fullScreen = !this.props.fullScreen;
+        // this.setState({
+        //     fullScreen
+        // })
+        const {dispatch} = this.props;
+        dispatch(setFullScreen(fullScreen));
     }
 
     render() {
         return (
             <div className="player-wrapper">
-                <div className="normal-player">
+                {this.props.fullScreen === true ? <div className="normal-player">
                     <div className="background">
                         <img width="100%" height="100%" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558519485757&di=821bfa73254d3fc97decc7de02403a7f&imgtype=0&src=http%3A%2F%2Fhubei.sinaimg.cn%2F2014%2F0824%2FU7651P1190DT20140824115623.jpg" alt=""/>
                     </div>
@@ -90,8 +94,17 @@ export default class Player extends React.Component {
                             <div className="icon i-right" onClick={this.changeFavorite}><i className={this.state.getFavoriteIcon}></i></div>
                         </div>
                     </div>
-                </div>
+                </div> : ''}
             </div>
         )
     }
 }
+const mapStateToProps = state => {
+    console.log(state)
+    return {
+        fullScreen: state.fullScreen,
+        playList: state.playList
+    }
+};
+
+export default connect(mapStateToProps)(Player)

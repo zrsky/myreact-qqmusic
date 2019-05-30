@@ -11,6 +11,17 @@ const ebikeData = (state, action) => {
                 ...state,
                 imgUrls: action.imgUrls
             }
+        case type.FULL_SCREEN:
+            return {
+                ...state,
+                fullScreen: action.fullScreen
+            }
+        case type.PLAY_LIST:
+            return {
+                ...state,
+                playlist: action.playlist,
+                fullScreen: action.playlist.length > 0 ? true : false
+            }
         default:
            return {...state}
 

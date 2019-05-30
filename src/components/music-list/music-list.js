@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import './music-list.less'
 import Scroll from '../../base/scroll/scroll'
 import SongList from '../../base/song-list/song-list'
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
+import { setPlayList } from '../../redux/action'
 
 const TOP_HEIGHT = 40;
 
-export default class MusicList extends React.Component {
+class MusicList extends React.Component {
 
     constructor(props) {
         super(props);
@@ -103,6 +104,13 @@ export default class MusicList extends React.Component {
         this.bgImg.style.zIndex = zIndex;
     }
 
+    selectItem = (list, index) => {
+        console.log(list)
+        console.log(index)
+        const { dispatch } = this.props;
+        dispatch(setPlayList(list));
+    }
+
     render() {
         return (
             <div className="musiclist-wrapper">
@@ -116,7 +124,7 @@ export default class MusicList extends React.Component {
                  <div className="layer" ref={this.getLayer}></div>
                  <Scroll className="list" style={{'overflow': 'visible'}} scroll={this.scroll} listenScroll={this.state.listenScroll}
                  probeType={this.state.probeType} ref={this.getScrollRef}>
-                    <SongList song={this.props.song}></SongList>
+                    <SongList song={this.props.song} selectItem={this.selectItem}></SongList>
                  </Scroll>
             </div>
         )
@@ -129,4 +137,4 @@ export default class MusicList extends React.Component {
 //         imgUrls: state.imgUrls
 //     }
 // };
-// export default connect(mapStateToProps)(MusicList)
+export default connect()(MusicList)
