@@ -19,8 +19,23 @@ const ebikeData = (state, action) => {
         case type.PLAY_LIST:
             return {
                 ...state,
-                playlist: action.playlist,
-                fullScreen: action.playlist.length > 0 ? true : false
+                playList: action.playList,
+                fullScreen: action.playList.length > 0 ? true : false
+            }
+        case type.TITLE:
+            return {
+                ...state,
+                title: action.title
+            }
+        case type.CURRENT_INDEX:
+            return {
+                ...state,
+                currentIndex: action.currentIndex
+            }
+        case type.PLAYING:
+            return {
+                ...state,
+                playing: action.playing
             }
         default:
            return {...state}

@@ -37,6 +37,12 @@
                     border: 10px solid rgba(255,255,255,0.1);
                     border-radius: 50%;
                     box-sizing: border-box;
+                    &.play {
+                    animation: rotate 20s linear infinite;
+                    }
+                    &.pause {
+                        animation-play-state: paused;
+                    }
                     img {
                         border-radius: 50%;
                     }
@@ -153,5 +159,15 @@
                 }
             }
         }
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    100% {
+        transform: rotate(360deg)
     }
 }

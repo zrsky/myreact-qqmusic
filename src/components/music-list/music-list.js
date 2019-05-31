@@ -4,7 +4,7 @@ import './music-list.less'
 import Scroll from '../../base/scroll/scroll'
 import SongList from '../../base/song-list/song-list'
 import { connect } from 'react-redux';
-import { setPlayList } from '../../redux/action'
+import { setPlayList, setCurrentIndex, setPlaying } from '../../redux/action'
 
 const TOP_HEIGHT = 40;
 
@@ -109,6 +109,8 @@ class MusicList extends React.Component {
         console.log(index)
         const { dispatch } = this.props;
         dispatch(setPlayList(list));
+        dispatch(setPlaying(true))
+        dispatch(setCurrentIndex(index))
     }
 
     render() {

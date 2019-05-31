@@ -44,7 +44,7 @@ class SingerDetail extends React.Component {
     }
 
     render() {
-        const { imgUrls } = this.props;
+        const { imgUrls, title } = this.props;
         return (
             /*<ReactCSSTransitionGroup
                 transitionName="fade"
@@ -52,7 +52,7 @@ class SingerDetail extends React.Component {
                 transitionLeaveTimeout={300}>*/
 
                 <div className="singer-detail-wrapper">
-                    <MusicList song={this.state.song} imgUrl={this.props.imgUrls}></MusicList>
+                    <MusicList song={this.state.song} imgUrl={this.props.imgUrls} title={this.props.title}></MusicList>
                 </div>
             /*</ReactCSSTransitionGroup>*/
         )
@@ -62,7 +62,8 @@ class SingerDetail extends React.Component {
 const mapStateToProps = state => {
     console.log(state)
     return {
-        imgUrls: state.imgUrls
+        imgUrls: state.imgUrls,
+        title: state.title
     }
 };
 export default connect(mapStateToProps)(SingerDetail)

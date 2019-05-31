@@ -6,7 +6,7 @@ import { getSingerList } from '../../api/singer'
 import { ERR_OK } from '../../api/config'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {setBgImage} from '../../redux/action'
+import {setBgImage, setTitle} from '../../redux/action'
 
 let HOT_NAME = '热门';
 let HOT_NAME_LEN = 10;
@@ -88,6 +88,7 @@ class Singer extends React.Component {
         console.log(singer)
         console.log(dispatch)
         dispatch(setBgImage(singer.avatar))
+        dispatch(setTitle(singer.name))
         let id = singer.id;
         this.context.router.history.push(`/singer/${id}`,{id: id});
     }

@@ -42,6 +42,12 @@
   border-radius: 50%;
   box-sizing: border-box;
 }
+.normal-player .middle .middle-l .cd-wrapper .cd.play {
+  animation: rotate 20s linear infinite;
+}
+.normal-player .middle .middle-l .cd-wrapper .cd.pause {
+  animation-play-state: paused;
+}
 .normal-player .middle .middle-l .cd-wrapper .cd img {
   border-radius: 50%;
 }
@@ -152,4 +158,12 @@
   position: relative;
   top: 7px;
   left: 7px;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
