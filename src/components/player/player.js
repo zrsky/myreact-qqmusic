@@ -163,7 +163,9 @@ class Player extends React.Component {
        console.log(rect)
        console.log(e.pageX)
        let offsetWidth = e.pageX - rect.left;
-       this._offset(offsetWidth)
+       let width = this.barInner.clientWidth - 16
+       let offset = Math.min(width, offsetWidth);
+       this._offset(offset)
     //    let percent = this.trrigerPercent(offsetWidth)
     //    this.percent(percent);
     }
