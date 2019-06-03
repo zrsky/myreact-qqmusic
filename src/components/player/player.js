@@ -2,6 +2,7 @@ import React from 'react';
 import './player.less'
 import {connect} from 'react-redux';
 import { setFullScreen, setPlaying, setCurrentIndex } from '../../redux/action'
+const progressBarWidth = 16;
 
 class Player extends React.Component {
 
@@ -139,20 +140,43 @@ class Player extends React.Component {
         if(!this.initiated) {
             return;
         }
+        console.log('move')
         this.touch.pageX2 = e.touches[0].pageX;
         let width = this.touch.left + this.touch.pageX2- this.touch.pageX1;
-        let offsetWidth = Math.min(this.barInner-16, Math.max(0, width));
-
+        let offsetWidth = Math.min(this.barInner.clientWidth-progressBarWidth, Math.max(0, width));
+        console.log(offsetWidth,this.barInner.clientWidth)
         this._offset(offsetWidth)
     }
 
     _offset(offsetWidth) {
-        this.progress.style.width = offsetWidth;
-        this.btn.style.left = offsetWidth
+        this.progress.style.width = offsetWidth + 'px';
+        this.btn.style.left = offsetWidth + 'px';
     }
 
     onProgressTouchEnd = (e) => {
+        this.initiated = false;
 
+    }
+
+    progressClick = (e) => {
+       let rect = this.barInner.getBoundingClientRect();
+       console.log(rect)
+       console.log(e.pageX)
+       let offsetWidth = e.pageX - rect.left;
+       this._offset(offsetWidth)
+    //    let percent = this.trrigerPercent(offsetWidth)
+    //    this.percent(percent);
+    }
+
+    percent(newPercent) {
+       let width = this.barInner.clientWidth - progressBarWidth;
+       let offsetWidth = Math.min(width, newPercent * width);
+       this._offset(offsetWidth)
+    }
+
+    trrigerPercent(offsetWidth) {
+        let percent = offsetWidth / (this.barInner.clientWidth - progressBarWidth);
+        return percent;
     }
 
     render() {
@@ -192,7 +216,7 @@ class Player extends React.Component {
                             <div className="progress-bar-wrapper">
                                 <div className="progress-bar">
                                     <div className="bar-inner" onTouchStart={this.onProgressTouchStart} onTouchMove={this.onProgressTouchMove}
-                                    onTouchEnd={this.onProgressTouchEnd} ref={this.getBarInner}>
+                                    onTouchEnd={this.onProgressTouchEnd} ref={this.getBarInner} onClick={this.progressClick}>
                                         <div className="progress" ref={this.getProgress}></div>
                                         <div className="progress-btn-wrapper" ref={this.getBtnWrapper}>
                                             <div className="progress-btn"></div>

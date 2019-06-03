@@ -145,7 +145,7 @@
 }
 .normal-player .bottom .progress-wrapper .progress-bar-wrapper .progress-btn-wrapper {
   position: absolute;
-  left: -8px;
+  left: 0px;
   top: -13px;
 }
 .normal-player .bottom .progress-wrapper .progress-bar-wrapper .progress-btn-wrapper .progress-btn {
@@ -157,7 +157,7 @@
   box-sizing: border-box;
   position: relative;
   top: 7px;
-  left: 7px;
+  left: 0px;
 }
 @keyframes rotate {
   0% {
