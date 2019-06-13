@@ -1,0 +1,45 @@
+.list-group {
+    color: rgba(255,255,255,0.5);
+    .list-item {
+        margin-bottom: 10px;
+    }
+    .title {
+        background: #333;
+        margin-top: 0;
+        text-align: left;
+        font-size: 12px;
+        padding: 10px 20px;
+    }
+    .list-group-item {
+        .item {
+            text-align: left;
+            display: flex;
+            align-items: center;
+            padding: 20px 0 0 30px;
+            img {
+                width: 50px;
+                border-radius: 50%;
+                height: 50px;
+                margin-right: 20px;
+            }
+        }
+    }
+}
+
+.list-shortcut {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translate3d(0, -40%, 0);
+    background: #000;
+    color: rgba(255,255,255,0.5);
+    padding: 10px 4px;
+    border-radius: 8px;
+    font-size: 12px;
+    li {
+        margin-top: 2px;
+        &.current {
+            color: #ffcd32;
+        }
+    }
+}

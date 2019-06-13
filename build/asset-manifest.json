@@ -1,0 +1,21 @@
+{
+  "main.css": "static/css/main.2a506da1.css",
+  "main.css.map": "static/css/main.2a506da1.css.map",
+  "main.js": "static/js/main.dd83d806.js",
+  "main.js.map": "static/js/main.dd83d806.js.map",
+  "static\\media\\icon.less": "static/media/icon.4b4c68af.less",
+  "static\\media\\listView.less": "static/media/listView.64f86d28.less",
+  "static\\media\\loading.less": "static/media/loading.fc844aea.less",
+  "static\\media\\music-list.less": "static/media/music-list.a8d842b9.less",
+  "static\\media\\my-header.less": "static/media/my-header.97c8ea82.less",
+  "static\\media\\noMatch.less": "static/media/noMatch.8242b7d4.less",
+  "static\\media\\player.less": "static/media/player.2cb2b0f6.less",
+  "static\\media\\rank.less": "static/media/rank.02b70918.less",
+  "static\\media\\scroll.less": "static/media/scroll.b75b732d.less",
+  "static\\media\\singer-detail.less": "static/media/singer-detail.80b04a22.less",
+  "static\\media\\singer.less": "static/media/singer.e06a2f0d.less",
+  "static\\media\\slider.less": "static/media/slider.f41152fe.less",
+  "static\\media\\song-list.less": "static/media/song-list.56fe6f45.less",
+  "static\\media\\tab.less": "static/media/tab.994219f9.less",
+  "static\\media\\top-list.less": "static/media/top-list.cdd8ae0f.less"
+}

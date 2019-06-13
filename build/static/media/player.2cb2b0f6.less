@@ -1,0 +1,173 @@
+.normal-player {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: #222;
+    .background {
+        opacity: .6;
+        filter: blur(20px);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+    }
+    .middle {
+        position: fixed;
+        width: 100%;
+        top: 80px;
+        bottom: 162px;
+        .middle-l {
+            position: relative;
+            padding-top: 80%;
+            width: 80%;
+            left: 10%;
+            height: 0;
+            .cd-wrapper {
+                position: absolute;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                .cd {
+                    height: 100%;
+                    border: 10px solid rgba(255,255,255,0.1);
+                    border-radius: 50%;
+                    box-sizing: border-box;
+                    &.play {
+                    animation: rotate 20s linear infinite;
+                    }
+                    &.pause {
+                        animation-play-state: paused;
+                    }
+                    img {
+                        border-radius: 50%;
+                    }
+                }
+            }
+            .playing-lyric-wrapper {
+                text-align: center;
+                overflow: hidden;
+                margin: 30px auto 0 auto;
+                .play-lyric {
+                    color: rgba(255,255,255,0.5);
+                    font-size: 14px;
+                    height: 20px;
+                    line-height: 20px;
+                }
+            }
+        }
+    }
+    .top {
+        color: #fff;
+        .back {
+            position: absolute;
+            top: 0px;
+            .icon-back {
+                transform: rotate(-90deg);
+                display: block;
+                padding: 9px;
+                font-size: 22px;
+                color: #ffcd32;
+            }
+        }
+        .title {
+            font-size: 18px;
+            font-weight: normal;
+            margin-bottom: 0;
+        }
+        .subtitle {
+            font-size: 14px;
+            font-weight: normal;
+            margin-bottom: 0;
+        }
+    }
+    .bottom {
+        position: absolute;
+        bottom: 50px;
+        width: 100%;
+        .operators {
+            display: flex;
+            .icon {
+                flex: 1;
+                color: #ffcd32;
+                font-size: 30px;
+            }
+        }
+        .dot-wrapper {
+            .dot {
+                background: rgba(255,255,255,0.5);
+                width: 8px;
+                height: 8px;
+                display: inline-block;
+                border-radius: 50%;
+                margin: 0 3px;
+                &.active {
+                    background: rgba(255,255,255,0.8);
+                    width: 20px;
+                    border-radius: 5px;
+                }
+            }
+        }
+        .progress-wrapper {
+            display: flex;
+            align-items: center;
+            margin: 0 auto;
+            padding: 10px 0;
+            width: 80%;
+            .time {
+                color: #fff;
+                width: 30px;
+                line-height: 30px;
+                display: inline-block;
+                font-size: 12px;
+            }
+            .progress-bar-wrapper {
+                flex: 1;
+                .progress-bar {
+                    height: 30px;
+                }
+                .bar-inner {
+                    position: relative;
+                    height: 4px;
+                    background: rgba(0,0,0,0.3);
+                    top: 13px;
+                }
+                .progress {
+                    position: absolute;
+                    height: 100%;
+                    background: #ffcd32;
+                }
+                .progress-btn-wrapper {
+                    position: absolute;
+                    left: 0px;
+                    top: -13px;
+                    .progress-btn {
+                        background: #ffcd32;
+                        width: 16px;
+                        height: 16px;
+                        border-radius: 50%;
+                        border: 3px solid #fff;
+                        box-sizing: border-box;
+                        position: relative;
+                        top: 7px;
+                        left: 0px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    100% {
+        transform: rotate(360deg)
+    }
+}
